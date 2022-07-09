@@ -75,6 +75,7 @@ class HashOpenAddr:
     def __setitem__(self, key, value):
         self.set(key, value)
 
+# 이 아래부터는 실습에 필요한 코드임.
 H = HashOpenAddr()
 while True:
     cmd = input().split()
