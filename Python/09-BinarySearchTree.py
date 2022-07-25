@@ -42,7 +42,7 @@ class Tree:
         if self.size == 0:
             return None
         p = None  # 부모 노드
-        v = self.root  # 모험을 떠날 노드
+        v = self.root  # 탐색용 노드
         
         while v != None:
             if v.key == key:
@@ -108,7 +108,8 @@ class Tree:
     def deleteByCopying(self, x):
         pt = x.parent
         L, R = x.left, x.right
-        if L:
+        
+        if L: # 왼쪽 부트리가 존재
             y = L
             while y.right:
                 y = y.right
@@ -121,7 +122,7 @@ class Tree:
                 y.parent.right = y.left
             del y
         
-        elif not L and R:
+        elif not L and R: # 왼쪽 부트리가 없고 오른쪽 부트리만 존재
             y = R
             while y.left:
                 y = y.left
@@ -134,7 +135,7 @@ class Tree:
                 y.parent.right = y.right
             del y
         
-        else:
+        else:  # 둘 다 없는 경우
             if pt == None:
                 self.root = None
             else:
